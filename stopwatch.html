@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+   <!-- <title> Stopwatch Timer application | CodingLab </title>-->
+    <link rel="stylesheet" href="sw.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="style/icofont/icofont.min.css">
+   </head>
+<body>
+    <div id="nav" class="sidenav" onmouseenter="openNav(this)" onmouseleave="closeNav(this)" >
+          
+        <a href="desktop.html"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+        <a href="about.html"><i class="fa fa-address-book" aria-hidden="true"></i> About</a>
+
+
+        <a href="calend.html"><i class="far fa-calendar" aria-hidden="true"></i> Calendar</a>
+        <a href="https://www.google.com/intl/si/gmail/about/"><i class="fa fa-comments"></i> Massages</a>
+        <a href="calculator.html"><i class="fa fa-calculator"></i> Calculator</a>
+        <a href="https://www.rapidtables.com/tools/notepad.html"><i class="fas fa-edit"></i> Notepad</a>
+        <a href="https://voice.google.com/about"><i class="fas fa-phone-volume"></i> Call</a>
+        <a href="toy tea cooker.html"><i class="fa fa-coffee" aria-hidden="true"></i> Tea cooker</a>
+        <a href="securiti.html"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</a>
+        <a href="clock.html"><i class="fas fa-clock" aria-hidden="true"></i> Clock</a>
+        <a href="https://jspaint.app/#local:9ebce7eaef2e"><i class="fas fa-palette" aria-hidden="true"></i> Paint</a>
+        <a href="stopwatch.html"><i class="fas fa-stopwatch" aria-hidden="true"></i> Stopwatch</a>
+        <a href="cam.html"><i class="fas fa-camera" aria-hidden="true"></i> Camera</a>
+        <a href="Audio Recorder.html"><i class="fas fa-microphone-alt"></i> Voice recorder</a>
+        <a href="HTML5 Webcam Recorder.html"><i class="fas fa-video"></i> Vidio recorder</a>
+        <a href="srec.html"><i class="fas fa-desktop"></i> Screen recorder</a>
+        <a href="https://mediaplayer.chromecrxstore.com/"><i class="fas fa-compact-disc"></i> Media player</a>
+
+
+
+
+        <a href="https://www.office.com/launch/excel?auth=1"><i class="fas fa-file-excel" aria-hidden="true"></i> Excel</a>
+        <a href="https://www.office.com/launch/powerpoint?auth=1"><i class="fas fa-file-powerpoint" aria-hidden="true"></i> Powerpoint</a>
+        <a href="https://onedrive.live.com/edit.aspx?resid=8D96D024E09B0F21!137&cid=8d96d024e09b0f21"><i class="fas fa-sticky-note" aria-hidden="true"></i> Onenote</a>
+        <a href="https://www.office.com/launch/word?auth=1"><i class="fas fa-file-word"></i> Word</a>
+        <a href="https://outlook.live.com/mail/0/"><i class="fas fa-envelope-open"></i> Outlook</a>
+        <a href="https://web.skype.com/"><i class="fab fa-skype"></i> Skype</a>
+
+        <a href="https://www.microsoft.com/en-us/download/details.aspx?id=41628"><i class="fab fa-internet-explorer"></i> Internet explorer</a>
+        <a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+
+        <a href="index.html"><i class="fas fa-sign-out-alt"></i> logout</a>
+        <div style="margin-bottom: 5px;"></div>
+      </div>
+  <div class="wrapper">
+    <div class="time">
+      <span class="hour">00</span>
+      <span class="colon">:</span>
+      <span class="minute">00</span>
+      <span class="colon">:</span>
+      <span class="second">00</span>
+      <span class="colon ms-colon">:</span>
+      <span class="millisecond">00</span>
+    </div>
+    <div class="buttons">
+      <button class="start">Start</button>
+      <button class="stop">Stop</button>
+      <button class="reset">Reset</button>
+    </div>
+  </div>
+  
+  <script>
+  let hr = min = sec = ms = "0" + 0,
+    startTimer;
+
+  const startBtn = document.querySelector(".start"),
+   stopBtn = document.querySelector(".stop"),
+   resetBtn = document.querySelector(".reset");
+
+   startBtn.addEventListener("click", start);
+   stopBtn.addEventListener("click", stop);
+   resetBtn.addEventListener("click", reset);
+
+  function start() {
+    startBtn.classList.add("active");
+    stopBtn.classList.remove("stopActive");
+
+    startTimer = setInterval(()=>{
+      ms++
+      ms = ms < 10 ? "0" + ms : ms;
+
+      if(ms == 100){
+        sec++;
+        sec = sec < 10 ? "0" + sec : sec;
+        ms = "0" + 0;
+      }
+      if(sec == 60){
+        min++;
+        min = min < 10 ? "0" + min : min;
+        sec = "0" + 0;
+      }
+      if(min == 60){
+        hr++;
+        hr = hr < 10 ? "0" + hr : hr;
+        min = "0" + 0;
+      }
+      putValue();
+    },10); //1000ms = 1s
+
+  }
+
+  function stop() {
+    startBtn.classList.remove("active");
+    stopBtn.classList.add("stopActive");
+    clearInterval(startTimer);
+  }
+  function reset() {
+    startBtn.classList.remove("active");
+    stopBtn.classList.remove("stopActive");
+    clearInterval(startTimer);
+    hr = min = sec = ms = "0" + 0;
+    putValue();
+  }
+
+  function putValue() {
+    document.querySelector(".millisecond").innerText = ms;
+    document.querySelector(".second").innerText = sec;
+    document.querySelector(".minute").innerText = min;
+    document.querySelector(".hour").innerText = hr;
+  }
+ </script>
+</body>
+</html>
