@@ -4,7 +4,7 @@ Windows 7 like OS
 
 Note:
   go to https://kenodh.github.io/HTML-OS-Windows-7-/
-  and type a username and a password.
+  and type a username and a password and click "Login" (enter button is not valid).
   if there is a error, go to https://kenodh.github.io/HTML-OS-Windows-7-/desktop.html
 
 want to search something on internet explorer?
