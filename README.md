@@ -10,3 +10,7 @@ Note:
 want to search something on internet explorer?
 1. Enter some link in the "Enter your website's link" box.
 2. In internet explorer, there is a search bar at the top. Search there.
+
+
+
+Sorry, but this version of HTML OS is "Bye-bye"d by ICS
